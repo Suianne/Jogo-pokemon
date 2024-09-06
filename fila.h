@@ -6,11 +6,18 @@
 
 typedef int type_item;
 
+typedef struct {
+	char name[30];
+} ability;
+
+// arrumar uma fila de habilidades (tipo char), inicializar ela e depois printar junto com a apresentação do pokemon
+
 typedef struct{
 	type_item item[MAX];
 	int start, end;
 	// int len;
 }type_line;
+
 
 void initializeLine(type_line *l){ //inicio e fim passam a ocupar a mesma posição física do vetor
 	l->start = l->end = MAX-1;
