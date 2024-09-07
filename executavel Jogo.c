@@ -10,16 +10,17 @@ int main(){
 	pokemon pokemons[15];
 	
 	
-	printf("Ola, jogador! Qual é o seu nome?\n");
+	printf("Ola, jogador! Qual e o seu nome?\n");
 	scanf(" %s", &player);
 	printf("Bem vindo (a) %s", player);
 	
 	createPokemons(pokemons);
-	int total = strlen(pokemons);
+
 	
 	createPokemons(pokemons);
+	int total = strlen(pokemons);
 	showPokemons(pokemons, total);
-//
+
 	
 	
 	
