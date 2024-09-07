@@ -2,7 +2,7 @@
 #define FILA_H
 #include <stdio.h>
 #include "pilha.h"
-#define MAX 100
+#define MAX 5
 
 typedef int type_item;
 
@@ -13,7 +13,7 @@ typedef struct {
 // arrumar uma fila de habilidades (tipo char), inicializar ela e depois printar junto com a apresentação do pokemon
 
 typedef struct{
-	type_item item[MAX];
+	ability abilities[MAX];
 	int start, end;
 	// int len;
 }type_line;
@@ -46,31 +46,54 @@ int lineFull (type_line *l){
 	}
 }
 
-int insertLine(type_line *l, type_item e){
-	if(lineFull(l)){
-		return 0;
-	} else {
-		l->end = next(l->end);
-		l->item[l->end] = e;
-		return 1;
-	}
+//int insertLine(type_line *l, ability a){
+//	if(lineFull(l)){
+//		return 0;
+//	} else {
+//		l->end = next(l->end);
+//		l->abilities[l->end] = a;
+//		return 1;
+//	}
+//}
+
+int insertAbility(type_line *l, ability a) {
+    if (lineFull(l)) {
+        printf("Fila de habilidades cheia!\n");
+        return 0;
+    }
+    l->abilities[l->end] = a;
+    l->end++;
+    return 1;
 }
 
-int removeLine(type_line *l, type_item *e){
+
+void showAbilities(type_line *l) {
+    if (l->end == l->start) {
+        printf("Nenhuma habilidade.\n");
+        return;
+    }
+
+    printf("Habilidades: ");
+    for (int i = l->start; i < l->end; i++) {
+        printf(" %s\n", l->abilities[i].name);
+    }
+}
+
+int removeLine(type_line *l, ability *a){
 	if(lineEmpty(l)){
 		return 0;
 	} else {
 		l->start = next(l->start);
-		*e = l->item[l->start];
+		*a = l->abilities[l->start];
 		return 1;
 	}
 }
 
 void printLine(type_line l){
-	type_item e;
+	ability a;
 	while(!lineEmpty(&l)){
-		removeLine(&l, &e);
-		printf("%d\n", e);
+		removeLine(&l, &a);
+		printf("%d\n", a);
 	}
 }
 
@@ -86,17 +109,26 @@ int lenghtLine (type_line *l){
 
 int lenghtLine2 (type_line l){
 	int cont=0;
-	type_item e;
+	ability a;
 	
 	while(!lineEmpty(&l)){
-		removeLine(&l, &e);
+		removeLine(&l, &a);
 		cont++;
 	}
 	
 	return cont;
 }
 
-void inverseLine(type_line l){
+//void showAbilities(type_line *l){
+//	printf("Habilidades: ");
+//	
+//	
+//	for(int i = l->start; i < l->end; i++){
+//		printf(" %s\n ", l->abilities[i].name);
+//	}
+//}
+
+/*void inverseLine(type_line l){
 	type_stack pilha;
 	type_item e;
 	initializeStack(&pilha);
@@ -113,6 +145,6 @@ void inverseLine(type_line l){
 	
 	printLine(l);
 	
-}
+}*/
 
 #endif

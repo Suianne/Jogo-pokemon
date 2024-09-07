@@ -1,14 +1,25 @@
 #include <stdio.h>
 #include "pokemons.h"
+#include "fila.h"
 #include <string.h>
-#define len 50
+#include <ctype.h>
+
 
 int main(){
-	char player[len];
+	char player[50];
+	pokemon pokemons[15];
 	
-	printf("Olá, jogador! Qual é o seu nome?\n");
-	scanf(" [^\n]%s", &player);
-	printf("Bem vindo %s", player);
+	
+	printf("Ola, jogador! Qual é o seu nome?\n");
+	scanf(" %s", &player);
+	printf("Bem vindo (a) %s", player);
+	
+	createPokemons(pokemons);
+	int total = strlen(pokemons);
+	
+	createPokemons(pokemons);
+	showPokemons(pokemons, total);
+//
 	
 	
 	
