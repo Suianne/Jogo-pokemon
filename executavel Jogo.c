@@ -18,8 +18,7 @@ int main(){
 
 	
 	createPokemons(pokemons);
-	int total = strlen(pokemons);
-	showPokemons(pokemons, total);
+	showPokemons(pokemons, totalPokemons(pokemons, 15));
 
 	
 	

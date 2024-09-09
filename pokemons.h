@@ -313,23 +313,29 @@ void createPokemons(pokemon pokemons[]){
 	insertAbility(&pokemons[14].skills, a15);
 }
 
-void totalPokemons(pokemon pokemons[]){
-	int total = strlen(pokemons);
-	printf("%d", total);
+
+int totalPokemons(pokemon pokemons[], int size){
+	int count = 0;
+	
+	for (int i = 0; i < size; i++){
+		//para garantir que só vai contar os pokemons que estiverem inicializados
+		if(pokemons[i].name[0] != '\0' && pokemons[i].type[0] != '\0'){
+			count++;
+		}
+	}
+	
 }
 
 void showPokemons(pokemon pokemons[], int total){
 	printf("\nEscolha 3 pokemons da lista abaixo:\n ");
-	for(int i = 0; i <= total+1; i++){
-		//para garantir que só vai imprimir os pokemons que estiverem inicializados
-		if(pokemons[i].name[0] != '\0' && pokemons[i].type[0] != '\0'){
-			printf("%d - %s (HP: %d | Type: %s | Attack: %d | Defense: %d | Special Attack: %d | Special defense: %d | Speed: %d | ", i+1, pokemons[i].name, 
-			pokemons[i].hp, pokemons[i].type, pokemons[i].attack, pokemons[i].defense, pokemons[i].spAttack, pokemons[i].spDefense, pokemons[i].speed);
+	for(int i = 0; i <= total; i++){
+		printf("%d - %s (HP: %d | Type: %s | Attack: %d | Defense: %d | Special Attack: %d | Special defense: %d | Speed: %d | ", i+1, pokemons[i].name, 
+		pokemons[i].hp, pokemons[i].type, pokemons[i].attack, pokemons[i].defense, pokemons[i].spAttack, pokemons[i].spDefense, pokemons[i].speed);
 		
 		
-			showAbilities(&(pokemons[i].skills));
-			printf("\n");
-		}
+		showAbilities(&(pokemons[i].skills));
+		printf("\n");
+		
 		
 	}
 	
@@ -341,3 +347,4 @@ void createPokemons (pokemon pokemons[]); //função que cria 15 pokemons pré-d
 void showPokemons(pokemon pokemons[], int total); //função que mostra os pokemons
 
 #endif
+                                    
