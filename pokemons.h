@@ -10,6 +10,7 @@
 
 
 typedef struct {
+	int id;
 	char name[40];
 	int hp;
 	int attack;
@@ -28,6 +29,7 @@ void createPokemons(pokemon pokemons[]){
 	//incializando os pokemons
 	
 	//Pokemon 1
+	pokemons[0].id = 1;
 	strcpy(pokemons[0].name, "Bulbassaur");
 	strcpy(pokemons[0].type, "Grass\Poison");
 	pokemons[0].hp = 45;
@@ -47,6 +49,7 @@ void createPokemons(pokemon pokemons[]){
 	insertAbility(&pokemons[0].skills, a1);
 
 	//Pokemon 2
+	pokemons[1].id = 2;
 	strcpy(pokemons[1].name, "Charmander");
 	strcpy(pokemons[1].type, "Fire");
 	pokemons[1].hp = 39;
@@ -66,6 +69,7 @@ void createPokemons(pokemon pokemons[]){
 	insertAbility(&pokemons[1].skills, a2);
 	
 	//Pokemon 3
+	pokemons[2].id = 3;
 	strcpy(pokemons[2].name, "Squirtle");
 	strcpy(pokemons[2].type, "Water");
 	pokemons[2].hp = 44;
@@ -85,6 +89,7 @@ void createPokemons(pokemon pokemons[]){
 	insertAbility(&pokemons[2].skills, a3);
 	
 	//Pokemon 4
+	pokemons[3].id = 4;
 	strcpy(pokemons[3].name, "Caterpie");
 	strcpy(pokemons[3].type, "Bug");
 	pokemons[3].hp = 45;
@@ -104,6 +109,7 @@ void createPokemons(pokemon pokemons[]){
 	insertAbility(&pokemons[3].skills, a4);
 	
 	//Pokemon 5
+	pokemons[4].id = 5;
 	strcpy(pokemons[4].name, "Weedle");
 	strcpy(pokemons[4].type, "Bug\Poison");
 	pokemons[4].hp = 40;
@@ -123,6 +129,7 @@ void createPokemons(pokemon pokemons[]){
 	insertAbility(&pokemons[4].skills, a5);
 	
 	//Pokemon 6
+	pokemons[5].id = 6;
 	strcpy(pokemons[5].name, "Pidgle");
 	strcpy(pokemons[5].type, "Normal\Flying");
 	pokemons[5].hp = 40;
@@ -142,6 +149,7 @@ void createPokemons(pokemon pokemons[]){
 	insertAbility(&pokemons[5].skills, a6);
 	
 	//Pokemon 7
+	pokemons[6].id = 7;
 	strcpy(pokemons[6].name, "Rattata");
 	strcpy(pokemons[6].type, "Normal");
 	pokemons[6].hp = 30;
@@ -161,6 +169,7 @@ void createPokemons(pokemon pokemons[]){
 	insertAbility(&pokemons[6].skills, a7);
 	
 	//Pokemon 8
+	pokemons[7].id = 8;
 	strcpy(pokemons[7].name, "Spearow");
 	strcpy(pokemons[7].type, "Normal\Flying");
 	pokemons[7].hp = 40;
@@ -180,6 +189,7 @@ void createPokemons(pokemon pokemons[]){
 	insertAbility(&pokemons[7].skills, a8);
 	
 	//Pokemon 9
+	pokemons[8].id = 9;
 	strcpy(pokemons[8].name, "Ekans");
 	strcpy(pokemons[8].type, "Poison");
 	pokemons[8].hp = 35;
@@ -199,6 +209,7 @@ void createPokemons(pokemon pokemons[]){
 	insertAbility(&pokemons[8].skills, a9);
 	
 	//Pokemon 10
+	pokemons[9].id = 10;
 	strcpy(pokemons[9].name, "Pikachu");
 	strcpy(pokemons[9].type, "Electric");
 	pokemons[9].hp = 35;
@@ -218,6 +229,7 @@ void createPokemons(pokemon pokemons[]){
 	insertAbility(&pokemons[9].skills, a10);
 	
 	//Pokemon 11
+	pokemons[10].id = 11;
 	strcpy(pokemons[10].name, "Nidoran(F)");
 	strcpy(pokemons[10].type, "Poison");
 	pokemons[10].hp = 55;
@@ -237,6 +249,7 @@ void createPokemons(pokemon pokemons[]){
 	insertAbility(&pokemons[10].skills, a11);
 	
 	//Pokemon 12
+	pokemons[11].id = 12;
 	strcpy(pokemons[11].name, "Nidoran(M)");
 	strcpy(pokemons[11].type, "Poison");
 	pokemons[11].hp = 46;
@@ -256,6 +269,7 @@ void createPokemons(pokemon pokemons[]){
 	insertAbility(&pokemons[11].skills, a12);
 	
 	//Pokemon 13
+	pokemons[12].id = 13;
 	strcpy(pokemons[12].name, "Clefairy");
 	strcpy(pokemons[12].type, "Fada");
 	pokemons[12].hp = 70;
@@ -275,7 +289,8 @@ void createPokemons(pokemon pokemons[]){
 	insertAbility(&pokemons[12].skills, a1);
 	
 	//Pokemon 14
-	strcpy(pokemons[13].name, "Bulbassaur");
+	pokemons[13].id = 14;
+	strcpy(pokemons[13].name, "Vulpix");
 	strcpy(pokemons[13].type, "Fire");
 	pokemons[13].hp = 38;
 	pokemons[13].attack = 41;
@@ -294,6 +309,7 @@ void createPokemons(pokemon pokemons[]){
 	insertAbility(&pokemons[13].skills, a14);
 	
 	//Pokemon 15
+	pokemons[14].id = 15;
 	strcpy(pokemons[14].name, "Oddish");
 	strcpy(pokemons[14].type, "Grass\Poison");
 	pokemons[14].hp = 45;
@@ -314,21 +330,11 @@ void createPokemons(pokemon pokemons[]){
 }
 
 
-int totalPokemons(pokemon pokemons[], int size){
-	int count = 0;
-	
-	for (int i = 0; i < size; i++){
-		//para garantir que só vai contar os pokemons que estiverem inicializados
-		if(pokemons[i].name[0] != '\0' && pokemons[i].type[0] != '\0'){
-			count++;
-		}
-	}
-	
-}
+
 
 void showPokemons(pokemon pokemons[], int total){
 	printf("\nEscolha 3 pokemons da lista abaixo:\n ");
-	for(int i = 0; i <= total; i++){
+	for(int i = 0; i < total; i++){
 		printf("%d - %s (HP: %d | Type: %s | Attack: %d | Defense: %d | Special Attack: %d | Special defense: %d | Speed: %d | ", i+1, pokemons[i].name, 
 		pokemons[i].hp, pokemons[i].type, pokemons[i].attack, pokemons[i].defense, pokemons[i].spAttack, pokemons[i].spDefense, pokemons[i].speed);
 		
@@ -337,6 +343,71 @@ void showPokemons(pokemon pokemons[], int total){
 		printf("\n");
 		
 		
+	}
+	
+}
+
+void removePokemon(pokemon pokemons[], int *total, pokemon team [], int teamSize){
+	for(int i = 0; i < teamSize; i++){
+		
+		int teamID = team[i].id; //guarda o ID do pokemon do time
+		
+		for (int j = 0; j < *total; j++){
+			
+			//verificando se existe no vetor de pokemons um ID correspondente ao que está no time para retirar
+			
+			if (pokemons[j].id == teamID){
+				
+				for (int k = j; k < *total-1; k++){
+					pokemons[k] = pokemons[k+1]; //move os pokemons para a próxima posição
+				}
+				
+				(*total)--;
+				j--;
+				break;
+				
+			}
+		}
+	}
+}
+
+void choosePokemons(pokemon pokemons[], pokemon team[], int total){
+	int choose, i = 0; //variável para controlar a quantidade de pokemons escolhidos
+	
+	while(i < 3){
+		printf("Escolha o pokemon (%d de 3), digite um numero de 1 a %d ", i+1, total);
+		scanf("%d", &choose);
+		
+		int foundPokemon = 0; //se for 1 é que encontrou o pokemon, 0 que não
+		
+		for (int j = 0; j < total; j++){
+			
+			//verifica em todo o vetor de pokemons se existe um pokemon com o mesmo id da variável escolha 
+			
+			if(pokemons[j].id == choose){
+				
+				team[i] = pokemons[j]; //guarda o pokemon com a váriavel escolha correta no time
+				foundPokemon = 1; // diz que encontrou o pokemon
+				break; // para de procurar
+				
+			}
+		}
+		
+		if (foundPokemon){ // só segue se o pokemon foi realmente encontrado e colocado no time
+		
+			i++; //incrementa o i, para rodar a escolha mais uma vez e seguir mais uma casa na posição física do vetor time
+			
+		} else { //se o pokemon já foi escolhido, ou se ele não existe mais no array
+		
+			printf("Opcao invalida, esse Pokemon nao esta disponivel. Por favor, informe outro ID: ");
+		}
+		
+		
+	}
+	
+	printf("\nSeu time e esse:\n");
+	for(int k = 0; k <3; k++){
+		printf("%s\n", team[k].name);
 	}
 	
 }

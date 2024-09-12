@@ -2,7 +2,7 @@
 #define FILA_H
 #include <stdio.h>
 #include "pilha.h"
-#define MAX 5
+#define LEN 5
 
 typedef int type_item;
 
@@ -13,14 +13,14 @@ typedef struct {
 // arrumar uma fila de habilidades (tipo char), inicializar ela e depois printar junto com a apresentação do pokemon
 
 typedef struct{
-	ability abilities[MAX];
+	ability abilities[LEN];
 	int start, end;
 	// int len;
 }type_line;
 
 
 void initializeLine(type_line *l){ //inicio e fim passam a ocupar a mesma posição física do vetor
-	l->start = l->end = MAX-1;
+	l->start = l->end = LEN-1;
 	//l->tam = 0;
 }
 
@@ -30,7 +30,7 @@ int lineEmpty(type_line *l){
 }
 
 int next(int pos){
-	if(pos == MAX-1){
+	if(pos == LEN-1){
 		return 0;
 	} else {
 		pos++;
@@ -119,32 +119,6 @@ int lenghtLine2 (type_line l){
 	return cont;
 }
 
-//void showAbilities(type_line *l){
-//	printf("Habilidades: ");
-//	
-//	
-//	for(int i = l->start; i < l->end; i++){
-//		printf(" %s\n ", l->abilities[i].name);
-//	}
-//}
 
-/*void inverseLine(type_line l){
-	type_stack pilha;
-	type_item e;
-	initializeStack(&pilha);
-	
-	while(!lineEmpty(&l)){
-		removeLine(&l, &e);
-		push(&pilha, e);
-	}
-	
-	while(!stackEmpty(&pilha)){
-		pop(&pilha, &e);
-		insertLine(&l, e);
-	}
-	
-	printLine(l);
-	
-}*/
 
 #endif

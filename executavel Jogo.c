@@ -4,21 +4,32 @@
 #include <string.h>
 #include <ctype.h>
 
+typedef struct {
+	char name[50];
+	pokemon team[3];
+}player;
+
 
 int main(){
-	char player[50];
+	player player;
 	pokemon pokemons[15];
+	pokemon team[3];
+	int teamSize = 3;
+	int totalPokemons = 15;
 	
 	
 	printf("Ola, jogador! Qual e o seu nome?\n");
-	scanf(" %s", &player);
-	printf("Bem vindo (a) %s", player);
+	scanf("%49s", player.name);
+	printf("Bem vindo (a) %s", player.name);
 	
 	createPokemons(pokemons);
 
+	showPokemons(pokemons, totalPokemons);
 	
-	createPokemons(pokemons);
-	showPokemons(pokemons, totalPokemons(pokemons, 15));
+	choosePokemons(pokemons, team, totalPokemons);
+	removePokemon(pokemons, &totalPokemons, team, teamSize);
+	
+	
 
 	
 	
