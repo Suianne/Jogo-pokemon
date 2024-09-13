@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h> //para usar a função de sorteio
+#include <time.h> //para inicializar a função de sorteio, sempre usar números novos
 #include "pilha.h"
 #include "fila.h"
 #include <string.h>
@@ -412,10 +414,34 @@ void choosePokemons(pokemon pokemons[], pokemon team[], int total){
 	
 }
 
+void shufflePokemons(pokemon pokemons[], int total){
+	
+	//inicializa o sorteador com numeros aleatórios que vem do relógio do computador
+	srand(time(NULL));
+	
+	//laço para percorrer o array de pokemons de trás para frente
+	for(int i = total - 1; i > 0; i--){
+		
+		//fiz a escolha do número aleatório parecido com o algoritmo de Fisher Yates
+		
+		int j = rand() % (i+1);//esse trecho define j (um novo indice que pode ser usado) como um numero aleatoria que esta entre 0 e i+1 que nesse caso é o tamanho total de pokemons
+		
+		//troca de pokemons por meio de uma variável auxiliar 
+		pokemon temp = pokemons[i];
+		pokemons[i] = pokemons[j];
+		pokemons[j] = temp;
+		
+		
+	}
+	
+
+}
 
 
-void createPokemons (pokemon pokemons[]); //função que cria 15 pokemons pré-definidos
-void showPokemons(pokemon pokemons[], int total); //função que mostra os pokemons
+//void createPokemons (pokemon pokemons[]); //função que cria 15 pokemons pré-definidos
+//void showPokemons(pokemon pokemons[], int total); //função que mostra os pokemons
+
+
 
 #endif
                                     

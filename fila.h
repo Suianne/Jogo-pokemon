@@ -103,7 +103,7 @@ int lenghtLine (type_line *l){
 	} else if (l->start < l->end){
 		return l->end - l->start;
 	} else {
-		return MAX -1 - l->start + l->end + 1;
+		return LEN -1 - l->start + l->end + 1;
 	}
 }
 

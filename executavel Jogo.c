@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include "pokemons.h"
 #include "fila.h"
+#include "pilha.h"
 #include <string.h>
 #include <ctype.h>
 
 typedef struct {
 	char name[50];
-	pokemon team[3];
 }player;
 
 
@@ -16,6 +16,10 @@ int main(){
 	pokemon team[3];
 	int teamSize = 3;
 	int totalPokemons = 15;
+	type_stack stackPokemon;
+	
+	initializeStack(&stackPokemon);
+	
 	
 	
 	printf("Ola, jogador! Qual e o seu nome?\n");
@@ -29,7 +33,13 @@ int main(){
 	choosePokemons(pokemons, team, totalPokemons);
 	removePokemon(pokemons, &totalPokemons, team, teamSize);
 	
+//	showPokemons(pokemons, totalPokemons);
+	shufflePokemons(pokemons, totalPokemons);
+//	showPokemons(pokemons, totalPokemons);
 	
+	stackPokemons(pokemons, &stackPokemon, totalPokemons);
+//	printStack(stackPokemon);
+
 
 	
 	
